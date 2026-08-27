@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary    timeout=15s
+Library    ../Helpers/StableElement.py
 
 *** Variables ***
 ${URL}    %{BASE_URL}
