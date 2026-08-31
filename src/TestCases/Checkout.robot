@@ -26,7 +26,9 @@ Require Customer Name
     Add Backpack To Cart
     Open Cart
     Start Checkout
+    Wait For Stable Element    id:continue
     Click Button    id:continue
+    Wait Until Element Is Visible    css:[data-test="error"]
     Element Text Should Be    css:[data-test="error"]    Error: First Name is required
     Location Should Contain    /checkout-step-one.html
 
@@ -35,6 +37,7 @@ Remove Backpack From Cart
     Catalog Should Be Open
     Add Backpack To Cart
     Open Cart
+    Wait For Stable Element    id:remove-sauce-labs-backpack
     Click Button    id:remove-sauce-labs-backpack
     Wait Until Page Does Not Contain Element    css:[data-test="inventory-item"]
     Page Should Not Contain Element    css:[data-test="shopping-cart-badge"]
