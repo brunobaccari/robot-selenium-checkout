@@ -35,6 +35,8 @@ src/Resources/Browser.robot     navegador e ambiente
 
 Cada teste abre um navegador novo e fecha no teardown. As keywords esperam por elementos e URLs; não há sleeps nem retry automático.
 
+`src/Helpers/StableElement.py` espera duas observações consecutivas com a mesma posição e dimensão antes de interagir. As transições também aguardam o conteúdo da página de destino, além da mudança de URL.
+
 ## Relatórios
 
 `results/report.html`, `results/log.html` e screenshot do checkout concluído. O CI guarda a pasta de resultados. [Execuções e artifacts no Actions](https://github.com/brunobaccari/robot-selenium-checkout/actions).
