@@ -1,5 +1,7 @@
 # SauceDemo — Robot Framework e Selenium
 
+[English version](README.en.md)
+
 Automação web em **https://www.saucedemo.com/**, seguindo a estrutura do meu [Robot com Selenium](https://github.com/brunobaccari/robot-selenium-demo).
 
 ## Instalação
@@ -13,6 +15,7 @@ python -m venv .venv
 Ative com `.venv\Scripts\activate` no Windows ou `source .venv/bin/activate` no Linux/macOS.
 
 ```bash
+cp .env.example .env
 python -m pip install -r requirements.txt
 python run_tests.py --outputdir results src/Clients
 ```
