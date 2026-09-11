@@ -17,7 +17,7 @@ Ative com `.venv\Scripts\activate` no Windows ou `source .venv/bin/activate` no 
 ```bash
 cp .env.example .env
 python -m pip install -r requirements.txt
-python run_tests.py --outputdir results src/Clients
+python run_tests.py --pythonpath . --outputdir results --xunit junit.xml src/Clients
 ```
 
 ## Estrutura
@@ -51,5 +51,8 @@ Credenciais são as públicas da página inicial e os dados de cliente são fict
 Copie `.env.example` para `.env` (`Copy-Item .env.example .env` no PowerShell ou `cp .env.example .env` no Linux/macOS). As variáveis do processo têm prioridade. `.env` não é versionado. URLs e credenciais ficam nessa configuração; os valores esperados dos testes permanecem nos cenários.
 
 As contas do exemplo são públicas e exclusivas de demonstração. Para outro ambiente, injete credenciais via secrets do CI e confirme também o contrato e os dados esperados antes de executar.
+
+
+Para consultar no GitHub, abra **Actions → Tests → execução → Summary**. O resumo mostra o resultado da etapa, as contagens do JUnit e o link para baixar as evidências. Em **Artifacts**, baixe `results` e extraia o ZIP para abrir os relatórios. O ZIP inclui também `summary.md`. A retenção é de 7 dias; o upload e o resumo também são executados após falhas. Se não houver relatório, o resumo informa que não foi possível confirmar a execução.
 
 Datas de commits deste portfólio foram reorganizadas retroativamente; as execuções do Actions mantêm suas datas reais.

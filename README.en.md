@@ -13,7 +13,7 @@ Create a virtual environment with `python -m venv .venv`. Activate it with `.ven
 ```bash
 cp .env.example .env
 python -m pip install -r requirements.txt
-python run_tests.py --outputdir results src/Clients
+python run_tests.py --pythonpath . --outputdir results --xunit junit.xml src/Clients
 ```
 
 Use `Copy-Item .env.example .env` on PowerShell. The runner loads URLs and public demo credentials from `.env`; existing process variables take precedence. `.env` is ignored. If adapting the project, keep private credentials in CI secrets.
@@ -31,5 +31,8 @@ Each test opens a fresh browser and closes it at teardown. `src/Helpers/StableEl
 `results/report.html`, `results/log.html` and a screenshot of completed checkout are uploaded by CI. See [Actions runs and artifacts](https://github.com/brunobaccari/robot-selenium-checkout/actions).
 
 Only public demo accounts and fictitious customer data are used. No real purchase, local application or emulator. Expected values refer to the catalog reviewed on October 6, 2026; changes in the hosted environment require review.
+
+
+On GitHub, open **Actions → Tests → run → Summary** for the test-step outcome, JUnit counts and evidence download link. Under **Artifacts**, download `results` and extract the ZIP to open the reports. The ZIP also includes `summary.md`. Retention is 7 days; upload and summary steps also run after failures. Missing reports are explicitly reported as unverified execution.
 
 Commit dates in this portfolio were reorganized retroactively; Actions runs retain their actual execution dates.
