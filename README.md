@@ -38,6 +38,8 @@ src/Resources/Browser.robot     navegador e ambiente
 
 Cada teste abre um navegador novo e fecha no teardown. As keywords esperam por elementos e URLs; não há sleeps nem retry automático.
 
+O perfil temporário do Chrome desativa o gerenciador de senhas e a verificação de credenciais vazadas. As contas públicas de demonstração podem disparar um diálogo nativo do navegador que bloqueia a interação com a página. A configuração fica restrita ao navegador dos testes.
+
 `src/Helpers/StableElement.py` espera duas observações consecutivas com a mesma posição e dimensão antes de interagir. As transições também aguardam o conteúdo da página de destino, além da mudança de URL.
 
 ## Relatórios

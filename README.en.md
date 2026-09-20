@@ -26,6 +26,8 @@ Four cases cover backpack checkout (USD 29.99 subtotal, USD 2.40 tax, USD 32.39 
 
 Each test opens a fresh browser and closes it at teardown. `src/Helpers/StableElement.py` waits for two consecutive observations with the same position and dimensions before interaction. Transitions wait for destination content as well as the URL. No fixed sleeps or automatic retries of actions or tests.
 
+The temporary Chrome profile disables password saving and password leak detection. Public demo credentials can trigger a browser-native dialog that blocks page interaction. These preferences apply only to the test browser.
+
 ## Evidence and limits
 
 `results/report.html`, `results/log.html` and a screenshot of completed checkout are uploaded by CI. See [Actions runs and artifacts](https://github.com/brunobaccari/robot-selenium-checkout/actions).
