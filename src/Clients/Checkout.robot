@@ -19,3 +19,7 @@ CT: Nome Obrigatorio
 CT: Remocao Do Produto
     [Tags]    carrinho
     Remove Backpack From Cart
+
+CT: Retomar Checkout Apos Cancelar Dados
+    [Tags]    checkout    carrinho
+    Resume Checkout After Cancelling Customer Form
