@@ -37,4 +37,10 @@ Only public demo accounts and fictitious customer data are used. No real purchas
 
 On GitHub, open **Actions → Tests → run → Summary** for the test-step outcome, JUnit counts and evidence download link. Under **Artifacts**, download `results` and extract the ZIP to open the reports. The ZIP also includes `summary.md`. Retention is 7 days; upload and summary steps also run after failures. Missing reports are explicitly reported as unverified execution.
 
+## Risks and CI decision
+
+Cancelling the customer form must preserve the cart without completing the order. Resuming checks the same item, quantity, totals and completion; reopening the cart confirms that items were removed. The test covers the state transition independently of other scenarios.
+
+The gate requires successful tests and readable JUnit, with no failures, skipped cases or empty report. A run without a report does not approve the commit. For a failure, check installation/network first, then the state captured in artifacts and the scenario expectation; changing an expectation requires confirming the target rule. No automatic test retry converts a failure into approval.
+
 Commit dates in this portfolio were reorganized retroactively; Actions runs retain their actual execution dates.
