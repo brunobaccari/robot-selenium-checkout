@@ -1,7 +1,7 @@
 *** Settings ***
 Resource         ../TestCases/Checkout.robot
 Test Setup       Open Store
-Test Teardown    Close All Browsers
+Test Teardown    Capture Final State And Close
 
 *** Test Cases ***
 CT: Login E Checkout Completo
@@ -23,3 +23,11 @@ CT: Remocao Do Produto
 CT: Retomar Checkout Apos Cancelar Dados
     [Tags]    checkout    carrinho
     Resume Checkout After Cancelling Customer Form
+
+*** Keywords ***
+Capture Final State And Close
+    TRY
+        Capture Page Screenshot
+    FINALLY
+        Close All Browsers
+    END
